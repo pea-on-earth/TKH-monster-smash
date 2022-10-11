@@ -1,12 +1,23 @@
+
 //global variables, can be accessed by all functions
 
-  //declare a variable named playerName that stores the value the player enters from a prompt
+  //declare a variable named playerName that stores the value the player enters from a prompt  
+let playerName = prompt('What is your name, champion?', '');
+console.log(playerName);
 
   //declare a variable named playerHealth and set it equal to the number value 15
+let playerHealth = 15;
+console.log(playerHealth);
 
   //assign a name of a monster (ex 'Werewolf') as a string to a variable named monsterName
+let monsterName = 'Ghoul';
+console.log(monsterName);
 
   //declare a variable named monsterHealth and set it equal to the number value 15
+let monsterHealth = 15;
+console.log(monsterHealth);
+
+
 
 //random integer function 
 //see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -17,17 +28,22 @@ function randomNum(min, max) {
   return Math.floor(Math.random() * (max - min) + min) // The maximum is exclusive and the minimum is inclusive
 }
 
+
 function playerAttack(){
 //use randomNum to generate attack points value between 1 - 5 and save the value to a variable named playerAttackPoints
+let playerAttackPoints = randomNum(1,6);
 
 //subtract playerAttackPoints from monsterHealth and update the monsterHealth variable
+monsterHealth = monsterHealth - playerAttackPoints;
 
   //use an alert with string template literals to tell the player: 
   // 1. player attacked monster 
   // 2. how much damage the player did 
   // 3. how much health the monster has 
+ alert(`${playerName} attacked ${monsterName}! ${playerName} did ${playerAttackPoints} damage! ${monsterName} has ${monsterHealth} life.`);
 }
 
+/*
 function monsterAttack(){
   //use randomNum to generate attack points value between 1 - 5 and save the value to a variable named monsterAttackPoints
 
@@ -61,7 +77,7 @@ function playGame() {
 
   //while loop that runs until player or monster's health is <= 0 
   //add the condition in the while loop parentheses 
-  while(){
+  while (){
     roundNumber++
    //write an alert statement that tells the player what round number it is, and the player's and monster's current health points
  
@@ -72,3 +88,6 @@ function playGame() {
 }
 
 //call playGame to start game
+playGame();
+
+*/
