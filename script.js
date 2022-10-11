@@ -43,20 +43,25 @@ monsterHealth = monsterHealth - playerAttackPoints;
  alert(`${playerName} attacked ${monsterName}! ${playerName} did ${playerAttackPoints} damage! ${monsterName} has ${monsterHealth} life.`);
 }
 
-/*
+
 function monsterAttack(){
   //use randomNum to generate attack points value between 1 - 5 and save the value to a variable named monsterAttackPoints
+  let monsterAttackPoints = randomNum(1,6);
 
   //subtract monsterAttackPoints from playerHealth and update the playerHealth variable 
+  playerHealth = playerHealth - monsterAttackPoints;
 
   //use an alert with string template literals to tell the player: 
   // 1. monster attacked player 
   // 2. how much damage the monster did 
   // 3. how much health the player has 
+  alert(`${monsterName} attacked ${playerName}! ${monsterName} did ${monsterAttackPoints} damage! ${playerName} has ${playerHealth} life.`);
 }
 
 function playRound() {
   //use randomNum to return either 0 or 1
+  
+  randomNum(0,2);
   
   //0 = player goes first, 1 = monster goes first
   
@@ -65,7 +70,20 @@ function playRound() {
   //if player goes first, run playerAttack, then if monsterHealth > 0, run monsterAttack
 
   //if monster goes first, run monsterAttack, then if playerHealth > 0, run playerAttack 
+  
+  if (randomNum === 0) {
+    playerAttack()
+    if (monsterHealth >  0){
+      monsterAttack()
+    }
+  } else {
+    monsterAttack()
+    if (playerHealth > 0) {
+      playerAttack()
+    }
+  }
 }
+ 
 
 function playGame() {
   //beginning game message
@@ -77,11 +95,16 @@ function playGame() {
 
   //while loop that runs until player or monster's health is <= 0 
   //add the condition in the while loop parentheses 
-  while (){
+  while (playerHealth >= 0 || monsterHealth >= 0){
     roundNumber++
+
    //write an alert statement that tells the player what round number it is, and the player's and monster's current health points
+   alert(
+    `It is round ${roundNumber}. ${playerName} has ${playerHealth} life and ${monsterName} has ${monsterHealth} life.`
+   );
  
    //call playRound inside the while loop
+   playRound();
     
   }
   //outside of while loop, declare a winner and use alert to show a win or lose message 
@@ -90,4 +113,3 @@ function playGame() {
 //call playGame to start game
 playGame();
 
-*/
