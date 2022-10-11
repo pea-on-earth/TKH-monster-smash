@@ -95,7 +95,7 @@ function playGame() {
 
   //while loop that runs until player or monster's health is <= 0 
   //add the condition in the while loop parentheses 
-  while (playerHealth >= 0 || monsterHealth >= 0){
+  while (playerHealth > 0 && monsterHealth > 0){
     roundNumber++
 
    //write an alert statement that tells the player what round number it is, and the player's and monster's current health points
@@ -108,7 +108,16 @@ function playGame() {
     
   }
   //outside of while loop, declare a winner and use alert to show a win or lose message 
-}
+  if (playerHealth < 0){
+    alert(
+      `${playerName} has been slain by ${monsterName}!`
+    )} else {
+      alert(
+        `${playerName} has slain the ${monsterName}!`
+      )
+    }
+  }
+
 
 //call playGame to start game
 playGame();
